@@ -17,13 +17,13 @@ def monthly_interest():
     step2 = (cycle_days - day_paid) * payment
     step3 = step1 - step2
     step4 = step3 / cycle_days
-    ###
+    ### monthly interest
     annual_interest = eval(input("What is your annual interest: "))
-    m_interest = annual_interest / 12
+    m_interest = (annual_interest / 100) / 12
 
     final = m_interest * step4
 
-    print(final)
+    print("Your monthly interest is", final)
 monthly_interest()
 ###
 
