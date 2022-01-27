@@ -34,6 +34,6 @@ def means():
     print("Geometric Mean: ", geometric ** (1.0 / values))
 
 
-means()
+
 
 
