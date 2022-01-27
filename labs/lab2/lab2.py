@@ -22,17 +22,15 @@ def means():
     for i in value_list: # rms mean
         x_squared = i ** 2
         x_squared_list.append(x_squared)
-    print(x_squared_list)
     for i in value_list: # geometric mean
         result = result * i
 
     sum_list_harmonic = sum(one_over_x_list)
     sum_list_rms = sum(x_squared_list)
-    print(sum_list_rms)
     geometric = float(result)
 
     print("Harmonic Mean: ", values / sum_list_harmonic)
-    print("Root-Mean-Square Mean: ", (values / sum_list_rms) ** (1/2))
+    print("Root-Mean-Square: ", (sum_list_rms / values) ** (1/2))
     print("Geometric Mean: ", geometric ** (1.0 / values))
 
 
