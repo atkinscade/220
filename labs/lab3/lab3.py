@@ -31,4 +31,3 @@ def traffic():
     print("Total number of vehicles traveled on all roads: ", summ(total_cars))
     print("Average number of vehicles per road: ", summ(total_cars) / road_num)
 
-traffic()
