@@ -31,4 +31,8 @@ def greeting_card():
         arrow.move(0, -2)
         time.sleep(0.02)
         arrow.move(1, 0)
+    close_msg = Text(Point(300, 685), "Click anywhere to close")
+    close_msg.draw(win)
+    close_msg.setSize(11)
+    win.getMouse()
     win.close()
