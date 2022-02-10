@@ -1,3 +1,12 @@
+"""
+Name: Cade Atkins
+lab4.py
+
+Problem: Cute little V-day message
+
+Certification of Authenticity:
+I certify that this assignment is entirely my own work.
+"""
 
 from graphics import *
 
@@ -23,5 +32,3 @@ def greeting_card():
         time.sleep(0.02)
         arrow.move(1, 0)
     win.close()
-
-greeting_card()
