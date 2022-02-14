@@ -1,13 +1,10 @@
 """
 Name: <your name goes here – first and last>
-<ProgramName>.py
+hw5.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
-
+Problem: Natural Language Processing
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
 
