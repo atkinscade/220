@@ -1,6 +1,6 @@
 """
 Name: Cade Atkins
-Cade Atkins.py
+CadeAtkins.py
 
 Problem: Solve problems given in the assignment.
 

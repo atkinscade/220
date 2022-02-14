@@ -33,15 +33,30 @@ def tip_jar():
     print("Your total tip amount is: ", result)
 
 
-def newton():
-    pass
+def newton(num, root):
+    # num = eval(input("What integer would you like to root: "))
+    # root = eval(input("What root: "))
+    for i in range(10):
+        if i == 0:
+            x = 1
+
+    f = x ** root - num
+    g = root * (x ** (root - 1))
+    x = x - (f / g)
+    return x
+print(newton(531610, 2))
 
 
-def sequence():
-    num_sequence = eval(input("how many values would you like in your sequence: "))
-    odd_list = []
-    for i in range(0, num_sequence, 2):
-        odd_list.append()
+# def sequence():
+#     num_sequence = eval(input("how many values would you like in your sequence: "))
+#     odd_list = []
+#     for i in range(0, num_sequence, 2):
+#         if i == #odd
+#             odd_list.append(i + 1)
+#         else:
+#             odd_list.append(i + 1)
+#     print(odd_list)
+
 
 
 
