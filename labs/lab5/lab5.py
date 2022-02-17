@@ -58,28 +58,43 @@ def color_shape():
     red_text_pt = Point(win_width / 2 - 50, win_height / 2 + 40)
     red_text = Text(red_text_pt, "Red: ")
     red_text.setTextColor("red")
+    red_entry = Entry(Point(175, 240), 3)
+    red_entry.draw(win)
 
     # green_text_pt is 30 pixels down from red
     green_text_pt = red_text_pt.clone()
     green_text_pt.move(0, 30)
     green_text = Text(green_text_pt, "Green: ")
     green_text.setTextColor("green")
+    green_entry = Entry(Point(175, 270), 3)
+    green_entry.draw(win)
 
     # blue_text_pt is 60 pixels down from red
     blue_text_pt = red_text_pt.clone()
     blue_text_pt.move(0, 60)
     blue_text = Text(blue_text_pt, "Blue: ")
     blue_text.setTextColor("blue")
+    blue_entry = Entry(Point(175, 300), 3)
+    blue_entry.draw(win)
 
     # display rgb text
     red_text.draw(win)
     green_text.draw(win)
     blue_text.draw(win)
 
+    # get text and change rgb values
+    for i in range(5):
+        win.getMouse()
+        green_val = green_entry.getText()
+        blue_val = blue_entry.getText()
+        red_val = red_entry.getText()
+        shape.setFill(color_rgb(int(red_val), int(blue_val), int(green_val)))
+
     # Wait for another click to exit
     win.getMouse()
     win.close()
 
+color_shape()
 
 def process_string():
     user = input("Enter a string: ")
@@ -91,7 +106,6 @@ def process_string():
     for letter in user:
         print(letter)
     print(len(user))
-
 
 def process_list():
     pt = Point(5, 10)
@@ -111,9 +125,6 @@ def process_list():
     print(x)
     print(len(values))
 
-
-
-
 def another_series():
     num_sequence = eval(input("How many numbers in your series: "))
     sequence_list = []
@@ -122,11 +133,6 @@ def another_series():
             sequence_list.append(j+1)
     result = sequence_list[0:num_sequence]
     print(result, "sum: " , summ(result))
-
-another_series()
-
-
-
 
 def target():
     color_list = ["white", "black", "blue", "red", "yellow"]
