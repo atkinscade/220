@@ -33,5 +33,19 @@ def find_all(val_list, value):
             out_list.append(count - 1)
     return out_list
 
+def element_counts(value_list, search_list):
+    count = 0
+    out_list = []
+
+    for i in range(len(value_list)):
+        count = count + i
+        try:
+            if value_list[i] == search_list[i]:
+            out_list.append(search_list[i])
+            out_list.append(count)
+        except IndexError:
+            pass
+    return print(out_list)
+
 
 
