@@ -1,34 +1,73 @@
+def equation(grades, weights):
+    items = zip(
+        weights, grades
+    )
+    item_sum = 0
+    for item in items:
+        item_sum += item[0] * item[1]
+    return item_sum / 100
+
+
+def open_file(file_name):
+    with open(file_name, 'r') as f:
+        lines = f.readlines()
+        return lines
+
+
+def save_file(file_name, results):
+    with open(file_name, 'w') as f:
+        for name in results:
+            f.write(
+                "{0}: {1}\n".format(name, results[name])
+            )
+
+
+def check_weights(weights):
+    return sum(weights) == 100
+
+
+def weighted_average(infile_name, outfile_name):
+    lines = open_file(infile_name)
+    results = (
+        dict()
+    )
+    overall_grades = (
+        []
+    )
+    for line in lines:
+        line = (
+            line.strip()
+        )
+        line = line.split(": ")
+        name = line[0]
+        grade_info = line[
+            1
+        ].split()
+        weights = []
+        grades = []
+        for idx, item in enumerate(grade_info):
+            if idx % 2 == 0:
+                weights.append(int(item))
+            else:
+                grades.append(int(item))
+        if check_weights(
+                weights
+        ):
+            w_average = equation(weights, grades)
+            results[name] = w_average
+            overall_grades.append(
+                w_average
+            )
+        else:
+            results[name] = "Error: Weights did not equal 100."
+    results["Overall Avg."] = sum(overall_grades) / len(overall_grades)
+    print(results)
+    save_file(outfile_name, results)
+
+
 def main():
-    def weighted_average(in_file):
-        open_file = open(in_file)
-        read_file = open_file.read()
-        lines = read_file.splitlines()
-        name_list = []
-        num_list = []
-        for i in lines:
-            parse = i.split(': ')
-            name_list.append(parse[:1])
-            num_list.append(parse[1:])
-        num_dict = {}
-        for key in name_list:
-            for val in num_list:
-                num_dict[str(key)] = val
-                num_list.remove(val)
-                break
-        count = 0
-        for values, keys in num_dict.items():
-            key_parse = str(keys).split(" ")
-            key_length = len(key_parse)
-            iter_length = key_length // 2
-            for i in range(iter_length):
-                for j in key_parse:
-                    var_result = j[0 + count]
-                    count += (1 * 2)
-                    print(key_parse)
-                    print(var_result)
+    weighted_average("test_file", "out_file")
 
 
-    weighted_average('test_file')
-
-
-main()
+if __name__ == "__main__":
+    main()
