@@ -12,19 +12,38 @@ I certify that this assignment is my own work, but I discussed it with: <Name(s)
 
 
 def add_ten(nums):
-    pass
+    plus10 = []
+    for i in nums:
+        new_num = i + 10
+        plus10.append(new_num)
+    return plus10
+
 
 
 def square_each(nums):
-    pass
+    new_list = []
+    for i in nums:
+        new_num = i ** 2
+        new_list.append(new_num)
+    return new_list
 
 
 def sum_list(nums):
-    pass
+    result = 0
+    for i in nums:
+        result += i
+    return result
 
 
 def to_numbers(nums):
-    pass
+    new_list = []
+    for i in nums:
+        if '.' not in i:
+            new_list.append(int(i))
+        else:
+            new_list.append(float(i))
+    return new_list
+
 
 
 def sum_of_square(nums):
