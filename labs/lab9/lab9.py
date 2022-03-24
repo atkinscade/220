@@ -1,12 +1,32 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Cade Atkins
+tictactoe.py
 """
+
+def count():
+    result = 9
+    for num in range(result):
+        result = result -1
+    return result
+
+def check(board):
+    soln = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+
+    for num in board:
+        if [board[0+num] , board[1+num] , board[2+num]] in soln:
+            return True
+        else:
+            return False
 
 
 def build_board():
-    pass
-
+    board = [
+        1, 2, 3,
+        4, 5, 6,
+        7, 8, 9
+    ]
+    players = {1: 'X', 2: 'O'}
+    return board
 
 def print_board(board):
     """ prints the values of baord """
@@ -37,27 +57,65 @@ def print_board(board):
 
 
 def is_legal(board, position):
-    pass
+    for pos in board:
+        if position == pos:
+            return True
+        else:
+            return False
 
 
 def fill_spot(board, position, character):
-    pass
+    for pos in board:
+        if position != pos:
+            board.replace(pos, character)
+        else:
+            pass
 
 
 def winning_game(board):
-    pass
+    soln = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+
+    for win in board:
+        if win in soln:
+            return True
+        else:
+            return False
 
 
 def game_over(board):
-    pass
+    if winning_game(board):
+        return True
+    elif not winning_game(board):
+        for check in board:
+            if check != int():
+                return False
+            else:
+                pass
+    elif count() == 0:
+        return True
+    else:
+        return False
 
 
 def get_winner(board):
-    pass
+    odds = [1, 3, 5, 7, 9]
+    if game_over(board):
+        if check(board):
+            if count() in odds:
+                return "Game winner is X's"
+            elif count() not in odds:
+                return "Game winner is O's"
+    else:
+        return "Game is tied"
+
 
 
 def play(board):
-    pass
+    key = board
+    while count() > 0:
+        continue
+    if count() == 0:
+        return get_winner(board)
 
 
 def main():
