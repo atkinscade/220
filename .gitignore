@@ -6,3 +6,5 @@ __pycache__
 !tests
 !labs
 !notes
+assignments/hw7/tests
+tests/hw9/get_words_test_*

@@ -46,7 +46,7 @@ def to_numbers(nums):
 
 
 
-def sum_of_square(nums):
+def sum_of_squares(nums):
     pass
 
 
