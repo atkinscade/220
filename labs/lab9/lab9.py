@@ -19,14 +19,20 @@ def check(board):
             return False
 
 
+def moves():
+    position = input("What position would you like to be in(1-9): ")
+    character = input("x's or o's: ")
+    return position and character
+
+
 def build_board():
     board = [
         1, 2, 3,
         4, 5, 6,
         7, 8, 9
     ]
-    players = {1: 'X', 2: 'O'}
     return board
+
 
 def print_board(board):
     """ prints the values of baord """
@@ -102,11 +108,11 @@ def get_winner(board):
     if game_over(board):
         if check(board):
             if count() in odds:
-                return "Game winner is X's"
+                return print("Game winner is X's")
             elif count() not in odds:
-                return "Game winner is O's"
+                return print("Game winner is O's")
     else:
-        return "Game is tied"
+        return print("Game is tied")
 
 
 
@@ -119,7 +125,31 @@ def play(board):
 
 
 def main():
-    pass
+    counts = count()
+    board = build_board()
+    char = ['x','o']
+    for num in counts:
+        print_board(board)
+        for i in range(2):
+            position = input("Where would you like to move(1-9): ")
+            character = char[i - 1]
+            if is_legal(board, position):
+                fill_spot(board, position, character)
+            else:
+                position = input("Choose an available position instead: ")
+                if is_legal(board, position):
+                    fill_spot(board, position, character)
+                else:
+                    pass
+            if is_legal(board, position):
+                try:
+                    if winning_game(board):
+                        get_winner(board)
+                    else:
+                        pass
+                except None:
+                    continue
+    return
 
 
 if __name__ == '__main__':
