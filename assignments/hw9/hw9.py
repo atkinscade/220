@@ -52,6 +52,7 @@ def play_command_line(file):
     correct_guess = False
     guessed_letters = []
     tries = 6
+    print('_ ' * len(secret_word))
     while not correct_guess and tries > 0:
         print('Guesses: ', guessed_letters)
         print('Tries remaining: ', tries)
@@ -75,6 +76,7 @@ def play_command_line(file):
         pass
     return
 
+play_command_line('words.txt')
 
 def play_graphics(secret_word):
     pass
