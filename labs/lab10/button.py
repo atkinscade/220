@@ -27,4 +27,3 @@ class Button:
 
     def color_button(self, color):
         self.shape.setFill(color)
-
