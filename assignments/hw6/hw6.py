@@ -12,11 +12,22 @@ I certify that this assignment is my own work, but I discussed it with: <Name(s)
 
 
 def cash_converter():
-    pass
+    money_int = eval(input("Input an integer: "))
+    print(f"That is ${money_int}.00")
+
 
 
 def encode():
-    pass
+    encode_list = []
+    msg = input("enter a code: ")
+    key = eval(input("input a key integer: "))
+    for i in msg:
+        i = ord(i) + key
+        encode_list.append(i)
+    for i in encode_list:
+        print(chr(i), end="")
+encode()
+
 
 
 def sphere_area(radius):
@@ -52,3 +63,13 @@ if __name__ == '__main__':
     # print(res)
     # encode_better()
     pass
+
+def encrypt(plaintext, key):
+    key_length = len(key)
+    key_as_int = [ord(i) for i in key]
+    plaintext_int = [ord(i) for i in plaintext]
+    ciphertext = ''
+    for i in range(len(plaintext_int)):
+        value = (plaintext_int[i] + key_as_int[i % key_length]) % 26
+        ciphertext += chr(value + 65)
+    return ciphertext

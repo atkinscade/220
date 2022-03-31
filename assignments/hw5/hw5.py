@@ -7,6 +7,11 @@ Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 """
 
+def summ(inlist):
+    result = 0
+    for i in inlist:
+        result = result + i
+    return result
 
 def name_reverse():
     name = input("Enter name (first last): ")
@@ -23,7 +28,7 @@ def company_name():
 def initials():
     num_names = eval(input("How many students: "))
     for i in range(num_names):
-        print("What's student", i+1, "'", "s name: ")
+        print("What's student", i+1, "'s name: ")
         name = input("")
         name.split(" ")
         print(name[0][:1], name[1][:1])
@@ -48,7 +53,7 @@ def word_average():
     sentence = sentence.split()
     for i in sentence:
         enlist.append(len(i))
-    avg = sum(enlist) / len(sentence)
+    avg = summ(enlist) / len(sentence)
     print(avg)
 
 

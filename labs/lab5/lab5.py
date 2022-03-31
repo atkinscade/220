@@ -141,7 +141,7 @@ def target():
     center = Point(200, 200)
     for i in range(5):
         place_holder = 200
-        place_holder =  place_holder - i * 40
+        place_holder = place_holder - i * 40
         target_circle = Circle(center, place_holder)
         target_circle.setFill(color_list[i])
         target_circle.draw(target_win)
