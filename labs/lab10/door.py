@@ -1,3 +1,4 @@
+
 class Door:
     def __init__(self, shape, text):
         self.shape = shape

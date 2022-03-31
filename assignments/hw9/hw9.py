@@ -1,14 +1,14 @@
-from random import *
+from random import randint
 
 
 def get_words(file_name):
-    with open(file_name, 'r') as f:
-        lines = f.read()
-        words = lines.split()
-        return words
+    open_file = open(file_name, 'r')
+    lines = open_file.read()
+    return lines
 
 
-def get_random_word(words):
+def get_random_word(word):
+    words = word.split()
     count = randint(0, len(words))
     return words[count]
 
@@ -72,9 +72,10 @@ def play_command_line(file):
                 tries = tries - 1
     if tries == 0:
         print("L")
+        print("The word was: ", secret_word)
     else:
         pass
-    return
+
 
 play_command_line('words.txt')
 

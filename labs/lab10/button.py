@@ -1,3 +1,4 @@
+
 class Button:
 
     def __init__(self, shape, text):
@@ -26,6 +27,4 @@ class Button:
 
     def color_button(self, color):
         self.shape.setFill(color)
-
-
 
