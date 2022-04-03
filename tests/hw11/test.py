@@ -301,6 +301,48 @@ def sales_force_test():
         methods_section.add_items(
             Test('individual_sales - exists - could not create sales force', True, False, show_actual_expected=False))
 
+    # sale frequencies
+    sale_frequencies_name = 'sales_frequencies'
+    sale_frequencies_data = build_sale_frequencies_data(5)
+    vals = []
+    counts = []
+    for person in sale_frequencies_data:
+        sales = person[2]
+        for sale in sales:
+            if sale in vals:
+                location = vals.index(sale)
+                counts[location] += 1
+            else:
+                vals.append(sale)
+                counts.append(1)
+    expected = {key: value for (key, value) in zip(vals, counts)}
+
+    sale_frequencies_sales_force = get_full_sales_force(sale_frequencies_data)
+    outcome, result = run_safe(sale_frequencies_sales_force.get_sale_frequencies)
+    if not outcome:
+        methods_section.add_items(
+            Test(sale_frequencies_name, True, False, show_actual_expected=False,
+                 exception_message=f'exception thrown: {result}', points=10))
+    else:
+        bad_keys = []
+        bad_values = []
+        for key, value in expected.items():
+            try:
+                actual_value = result[key]
+                if not actual_value == value:
+                    bad_values.append(f'key: {key}, expected value: {value}')
+            except:
+                bad_keys.append(key)
+        if not bad_keys and not bad_values:
+            methods_section.add_items(
+                Test(sale_frequencies_name, True, True, show_actual_expected=False, points=10))
+        else:
+            methods_section.add_items(
+                Test(sale_frequencies_name, True, False, show_actual_expected=False,
+                     data=[f'data: {print_friendly_sales_data(sale_frequencies_data)}',
+                           f'expected keys not found: {bad_keys}',
+                           f'expected values not found: {" | ".join(bad_values)}'], points=10))
+
     return constructor_section, instance_variable_section, methods_section
 
 
@@ -356,6 +398,19 @@ def print_friendly_sales_data(sales_data, *args: SalesPerson):
     return data
 
 
+def build_sale_frequencies_data(number_of_sales_people):
+    data = build_sales_data(number_of_sales_people)
+    possible_sales_count = 10
+    possible_sales = []
+    for i in range(possible_sales_count):
+        possible_sales.append(round(random.uniform(100, 500), 2))
+    for person in data:
+        sales = person[2]
+        for i in range(len(sales)):
+            sales[i] = random.choice(possible_sales)
+    return data
+
+
 def build_sales_data(number_of_sales_people):
     """
     returns a list of sales people
@@ -382,6 +437,7 @@ def write_sales_data(data, file_name):
             name = person[1]
             sales = ' '.join(map(str, person[2]))
             test_data_file.write(f'{id}, {name}, {sales}\n')
+
 
 if __name__ == '__main__':
     main()
