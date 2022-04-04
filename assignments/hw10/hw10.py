@@ -3,14 +3,14 @@
 
 
 def fibonacci(num):
-    n1, n2 = 1, 1
+    n_1, n_2 = 1, 1
     fib_seq = []
     count = 0
     while count < num and num > 1:
-        fib_seq.append(n1)
-        result = n1 + n2
-        n1 = n2
-        n2 = result
+        fib_seq.append(n_1)
+        result = n_1 + n_2
+        n_1 = n_2
+        n_2 = result
         count += 1
     return fib_seq[num - 1]
 
