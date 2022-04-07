@@ -13,11 +13,11 @@ class Rec:
 
     def draw(self, win):
         self.shape.draw(win)
-        self.text.draw(win)
+        #self.text.draw(win)
 
     def undraw(self):
         self.shape.undraw()
-        self.text.undraw()
+        #self.text.undraw()
 
     def is_clicked(self, point):
         if point in self.shape:
@@ -44,5 +44,31 @@ class Rec:
 
     def set_secret(self, secret):
         self.secret = secret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

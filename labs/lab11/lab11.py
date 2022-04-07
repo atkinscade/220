@@ -1,4 +1,4 @@
-from lab10.door import Door
+from lab10.door import Rec
 from graphics import *
 from random import randint
 
@@ -27,17 +27,17 @@ def main():
     win_point = Rectangle(Point(20, 10), Point(125, 80))
     lose_point = Rectangle(Point(20, 10), Point(230, 80))
 
-    winning = Door(win_point, '0')
-    losing = Door(lose_point, '0')
+    winning = Rec(win_point, '0')
+    losing = Rec(lose_point, '0')
 
-    door1 = Door(door_rec1, "Door 1")
-    door2 = Door(door_rec2, "Door 2")
-    door3 = Door(door_rec3, "Door 3")
+    door1 = Rec(door_rec1, "Door 1")
+    door2 = Rec(door_rec2, "Door 2")
+    door3 = Rec(door_rec3, "Door 3")
 
     ###
     secret = randint(1, 3)
 
-    door1.open('green', 'Winner')
+    door1.draw(win)
 
     time.sleep(5)
 
