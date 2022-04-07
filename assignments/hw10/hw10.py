@@ -1,6 +1,4 @@
 
-##
-
 
 def fibonacci(num):
     n_1, n_2 = 1, 1

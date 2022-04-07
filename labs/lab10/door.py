@@ -1,5 +1,5 @@
 
-class Door:
+class Rec:
     def __init__(self, shape, text):
         self.shape = shape
         self.text = text
