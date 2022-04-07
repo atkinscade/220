@@ -13,15 +13,18 @@ class Rec:
 
     def draw(self, win):
         self.shape.draw(win)
-        #self.text.draw(win)
+        self.text.draw(win)
 
     def undraw(self):
         self.shape.undraw()
-        #self.text.undraw()
+        self.text.undraw()
 
     def is_clicked(self, point):
-        if point in self.shape:
-            return True
+        corner1 = self.shape.getP1()
+        corner2 = self.shape.getP2()
+        if corner1.getY() < point.getY() < corner2.getY():
+            if corner1.getX() < point.getX() < corner2.getX():
+                return True
         else:
             return False
 
