@@ -22,8 +22,8 @@ class Rec:
     def is_clicked(self, point):
         corner1 = self.shape.getP1()
         corner2 = self.shape.getP2()
-        if corner1.getY() < point.getY() < corner2.getY():
-            if corner1.getX() < point.getX() < corner2.getX():
+        if corner1.getY() <= point.getY() <= corner2.getY():
+            if corner1.getX() <= point.getX() <= corner2.getX():
                 return True
         else:
             return False

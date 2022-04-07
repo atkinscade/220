@@ -2,21 +2,6 @@ from lab10.door import Rec
 from graphics import *
 from random import randint
 
-# win = GraphWin("3 Door Game", 600, 600)
-# door_rec1 = Rectangle(Point(20, 100), Point(180, 530))
-# door_rec2 = Rectangle(Point(220, 100), Point(380, 530))
-# door_rec3 = Rectangle(Point(420, 100), Point(580, 530))
-#
-# win_point = Rectangle(Point(20, 10), Point(125, 80))
-# lose_point = Rectangle(Point(20, 10), Point(230, 80))
-#
-# winning = Door(win_point, '0')
-# losing = Door(lose_point, '0')
-#
-# door1 = Door(door_rec1, "Door 1")
-# door2 = Door(door_rec2, "Door 2")
-# door3 = Door(door_rec3, "Door 3")
-
 
 def main():
     done = False
@@ -38,19 +23,13 @@ def main():
         door2_txt = Text(Point(300, 300), txt2)
         door3_txt = Text(Point(500, 300), txt3)
 
-
-        exitting = Rectangle(Point(510, 90), Point(590, 10))
-
-        winner = Text(Point(90, 300), "WINNER")
-        loser = Text(Point(90, 300), "LOSER")
+        exitting = Rectangle(Point(510, 10), Point(590, 90))
 
         win_point = Rectangle(Point(20, 10), Point(125, 80))
         lose_point = Rectangle(Point(20, 10), Point(230, 80))
 
         winning = Rec(win_point, Text(Point(70, 50), str(wins)))
         losing = Rec(lose_point, Text(Point(170, 50), str(losses)))
-
-
 
         door1 = Rec(door_rec1, door1_txt)
         door2 = Rec(door_rec2, door2_txt)
@@ -85,15 +64,15 @@ def main():
                 door1.open('green', "correct")
                 wins = wins + 1
                 winning.undraw()
+                winning.set_label(Text(Point(100, 300), wins))
                 time.sleep(1)
                 winning.draw(win)
                 door1.close('white', 'Door 1')
-
-                won = True
             else:
                 door1.open('red', 'incorrect')
                 losses = losses + 1
                 losing.undraw()
+                losing.set_label(Text(Point(100, 300), losses))
                 time.sleep(1)
                 losing.draw(win)
                 door1.close('white', 'Door 1')
@@ -102,14 +81,15 @@ def main():
                 door2.open('green', "correct")
                 wins = wins + 1
                 winning.undraw()
+                winning.set_label(Text(Point(300, 300), wins))
                 time.sleep(1)
                 winning.draw(win)
                 door2.close('white', 'Door 1')
-                won = True
             else:
                 door2.open('red', "incorrect")
                 losses = losses + 1
                 losing.undraw()
+                losing.set_label(Text(Point(300, 300), losses))
                 time.sleep(1)
                 losing.draw(win)
                 door2.close('white', 'Door 2')
@@ -118,30 +98,22 @@ def main():
                 door3.open('green', "correct")
                 wins = wins + 1
                 winning.undraw()
+                winning.set_label(Text(Point(500, 300), wins))
                 time.sleep(1)
                 winning.draw(win)
                 door3.close('white', 'Door 3')
-                won = True
             else:
                 door3.open('red',  "incorrect")
                 losses = losses + 1
                 losing.undraw()
+                losing.set_label(Text(Point(500, 300), losses))
                 time.sleep(1)
                 losing.draw(win)
                 door3.close('white', 'Door 3')
-        else:
-            if exit_button.is_clicked(click):
-                exit_button.color_door("red")
-
-
-
-
-
-    time.sleep(5)
-
-    win.close()
+        elif exit_button.is_clicked(click):
+            exit_button.color_door("red")
+            done = True
+            time.sleep(1)
+            win.close()
 
 main()
-
-
-
