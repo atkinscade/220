@@ -22,6 +22,7 @@ class SalesPerson:
 
     def enter_sale(self, sale):
         self.sales.append(sale)
+        return self.sales
 
     def total_sales(self):
         return sum(self.sales)
@@ -31,9 +32,9 @@ class SalesPerson:
 
     def met_quota(self, quota):
         if quota >= sum(self.sales):
-            return True
-        else:
             return False
+        else:
+            return True
 
     def compare_to(self, other):
         if self.sales > other.sales:
